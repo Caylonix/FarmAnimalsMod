@@ -2,7 +2,7 @@ package farmanimals.entity;
 
 import javax.annotation.Nullable;
 
-import farmanimals.init.ModConfig;
+import farmanimals.init.ModConfigs;
 import farmanimals.init.ModItems;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityCow;
@@ -82,7 +82,7 @@ public class BetterCow extends EntityCow {
             }
         	return true;
         } else if(!this.world.isRemote && stack != null && this.isPotionActive(MobEffects.SPEED) &&  stack.getItem() == Items.COOKIE && this.getType() != 4 && this.transTime == 0) {
-        	this.transTime = ModConfig.milkaTransTime;
+        	this.transTime = ModConfigs.milkaTransTime;
         	stack.shrink(1);
         	return true;
     	} else {
@@ -134,7 +134,7 @@ public class BetterCow extends EntityCow {
     }
     
     public EntityCow createChild(EntityAgeable ageable) {
-        return this.createChildwithVariants((BetterCow) ageable, 4, ModConfig.cowMutationRate);
+        return this.createChildwithVariants((BetterCow) ageable, 4, ModConfigs.cowMutationRate);
     }
     
     @Nullable
